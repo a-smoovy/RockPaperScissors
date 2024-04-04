@@ -20,6 +20,33 @@
             }
         }
         
+        function playRound(player, computer){
+            const playerAns = player.toLowerCase()
+            if (playerAns === computer){
+                return 'It is a Draw'
+            }
+            else if (playerAns === 'rock' && computer === 'scissors'){
+                return 'You won'
+            }
+            else if (playerAns === 'scissors' && computer === 'paper'){
+                return 'You won'
+            }
+            else if (playerAns === 'paper' && computer === 'rock'){
+                return 'You won'
+            }
+            else if (computer === 'rock' && playerAns === 'scissors'){
+                return 'You lost'
+            }
+            else if (computer === 'scissors' && playerAns === 'paper'){
+                return 'You lost'
+            }
+            else if (computer === 'paper' && playerAns === 'rock'){
+                return 'You lost'
+            }
+            else{
+                return 'You did not input a valid value'
+            }
+        }
         
     </script>
 </body>
