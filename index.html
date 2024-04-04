@@ -10,43 +10,69 @@
         function getComputerChoice(){
             const choice = Math.floor(Math.random() * 3)
             if (choice === 0){
-                return 'rock'
+                return 'rock';
             }
             else if (choice === 1){
-                return 'paper'
+                return 'paper';
             }
             else{
-                return 'scissors'
+                return 'scissors';
             }
         }
         
         function playRound(player, computer){
             const playerAns = player.toLowerCase()
             if (playerAns === computer){
-                return 'It is a Draw'
+                return 'It is a Draw';
             }
             else if (playerAns === 'rock' && computer === 'scissors'){
-                return 'You won'
+                return 'You won';
             }
             else if (playerAns === 'scissors' && computer === 'paper'){
-                return 'You won'
+                return 'You won';
             }
             else if (playerAns === 'paper' && computer === 'rock'){
-                return 'You won'
+                return 'You won';
             }
             else if (computer === 'rock' && playerAns === 'scissors'){
-                return 'You lost'
+                return 'You lost';
             }
             else if (computer === 'scissors' && playerAns === 'paper'){
-                return 'You lost'
+                return 'You lost';
             }
             else if (computer === 'paper' && playerAns === 'rock'){
-                return 'You lost'
+                return 'You lost';
             }
             else{
-                return 'You did not input a valid value'
+                return 'You did not input a valid value';
             }
         }
+        
+        
+        function playGames(){
+            let score = 0;
+            let playerSelection = ''
+            let computerSelection = ''
+            let currentGame = '';
+
+            for(let i = 0; i < 5; i++){
+                let playerSelection = prompt('rock, paper or scissors');
+                let computerSelection = getComputerChoice();
+                let currentGame = playRound(playerSelection, computerSelection);
+                console.log(currentGame)
+                if (currentGame === 'You did not input a valid value'){
+                    i--;
+                }
+                else if(currentGame === 'You won'){
+                    score++;
+                    console.log("You have won " + score + " games out of " + (i+1));
+                }
+                
+            }
+            console.log("You won " + score + " games out of 5");
+
+        }
+        playGames();
         
     </script>
 </body>
